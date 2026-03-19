@@ -123,6 +123,13 @@ npm start
 
 Frontend runs on http://localhost:3000 and calls backend at http://localhost:5000/api.
 
+### 7. Create database collections
+In backend folder:
+
+npm run collections
+
+This creates the users and tasks collections in your MongoDB Atlas database.
+
 ## API Endpoints
 
 All endpoints require the header:
