@@ -82,16 +82,20 @@ This creates an audit trail for each task lifecycle.
 ### Prerequisites
 - Node.js (18+ recommended)
 - npm
-- MongoDB running locally or a cloud MongoDB URI
+- MongoDB Atlas cluster (free tier works) with a database user created
 
 ### 1. Clone and open project
 Open the root folder in your editor.
 
 ### 2. Configure backend environment
-Update backend/.env:
+Copy backend/.env.example to backend/.env and fill in your MongoDB Atlas credentials:
+
+cp backend/.env.example backend/.env
 
 PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/planora
+MONGO_URI=mongodb+srv://<db_username>:<db_password>@cluster0.lt1o4y7.mongodb.net/planora?appName=Cluster0
+
+Replace <db_username> and <db_password> with the database user you created for the cluster.
 
 ### 3. Install backend dependencies
 In backend folder:
