@@ -3,7 +3,8 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 
 const connectDB = require("./config/db");
-const apiKeyMiddleware = require("./middleware/apiKey");
+const authMiddleware = require("./middleware/auth");
+const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const taskRoutes = require("./routes/taskRoutes");
 
@@ -19,10 +20,10 @@ app.get("/", (_req, res) => {
   res.status(200).json({ message: "Planora API is running" });
 });
 
-// Apply API key protection to all API routes.
-app.use("/api", apiKeyMiddleware);
-app.use("/api/users", userRoutes);
-app.use("/api/tasks", taskRoutes);
+// Auth endpoints are public; the rest of the API requires a JWT.
+app.use("/api/auth", authRoutes);
+app.use("/api/users", authMiddleware, userRoutes);
+app.use("/api/tasks", authMiddleware, taskRoutes);
 
 const PORT = process.env.PORT || 5000;
 

@@ -12,7 +12,8 @@ Tasks move through four stages:
 - Done
 
 ### User Management
-- Create user with name and email
+- Register an account with name, email and password
+- Login with email and password (returns a JWT)
 - Get all users
 - Persist users in MongoDB
 
@@ -39,8 +40,9 @@ This creates an audit trail for each task lifecycle.
 
 ### Security
 - CORS enabled
-- API key middleware enabled on all API routes
-- Required header: x-api-key: 12345
+- Passwords hashed with bcrypt before storing
+- JWT auth middleware protects all /api/users and /api/tasks routes
+- Required header: Authorization: Bearer <token>
 
 ## Project Structure
 
@@ -49,13 +51,15 @@ This creates an audit trail for each task lifecycle.
     - User.js
     - Task.js
   - controllers
+    - authController.js
     - userController.js
     - taskController.js
   - routes
+    - authRoutes.js
     - userRoutes.js
     - taskRoutes.js
   - middleware
-    - apiKey.js
+    - auth.js
   - server.js
   - package.json
 
@@ -65,7 +69,6 @@ This creates an audit trail for each task lifecycle.
   - src
     - components
       - Navbar.js
-      - UserForm.js
       - TaskForm.js
       - TaskCard.js
     - pages
@@ -132,11 +135,15 @@ This creates the users and tasks collections in your MongoDB Atlas database.
 
 ## API Endpoints
 
-All endpoints require the header:
-- x-api-key: 12345
+Auth endpoints are public. All other endpoints require the header:
+- Authorization: Bearer <token>
+
+### Auth
+- POST /api/auth/register
+- POST /api/auth/login
+- GET /api/auth/me
 
 ### Users
-- POST /api/users
 - GET /api/users
 
 ### Tasks
@@ -147,13 +154,24 @@ All endpoints require the header:
 
 ## Example Request Bodies
 
-### Create User
-POST /api/users
+### Register
+POST /api/auth/register
 
 {
   "name": "Alice",
-  "email": "alice@example.com"
+  "email": "alice@example.com",
+  "password": "secret123"
 }
+
+### Login
+POST /api/auth/login
+
+{
+  "email": "alice@example.com",
+  "password": "secret123"
+}
+
+Login and register both return a token plus the user details.
 
 ### Create Task
 POST /api/tasks
@@ -194,4 +212,4 @@ This supports traceability and helps teams inspect how long tasks remain in each
 - Python service for ML-based effort prediction and smart prioritization
 
 ## Notes
-This implementation uses a simple API key for basic protection. For production, replace it with robust authentication and authorization (JWT, sessions, RBAC).
+Auth uses JWT tokens (7 day expiry) with bcrypt-hashed passwords. For production, consider refresh tokens, session management and role-based access control.
