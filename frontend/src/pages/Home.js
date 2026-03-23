@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../api";
-import UserForm from "../components/UserForm";
 import TaskForm from "../components/TaskForm";
 
 function Home() {
@@ -39,7 +38,6 @@ function Home() {
 
   return (
     <div className="page-grid">
-      <UserForm onUserCreated={loadData} />
       <TaskForm users={users} onTaskCreated={loadData} />
 
       <section className="panel full-width">

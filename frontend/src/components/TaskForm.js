@@ -38,7 +38,7 @@ function TaskForm({ users, onTaskCreated }) {
   };
 
   return (
-    <section className="panel">
+    <section className="panel full-width">
       <h2>Add Task</h2>
       <form className="form-grid" onSubmit={handleSubmit}>
         <input
