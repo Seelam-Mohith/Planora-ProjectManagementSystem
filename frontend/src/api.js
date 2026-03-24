@@ -3,7 +3,7 @@ import axios from "axios";
 const TOKEN_KEY = "planora_token";
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL || "http://localhost:5000/api",
+  baseURL: process.env.REACT_APP_API_BASE_URL || "/api",
 });
 
 api.interceptors.request.use((config) => {
