@@ -1,0 +1,11 @@
+{
+  "name": "planora-netlify",
+  "version": "1.0.0",
+  "description": "Netlify functions for the Planora project management utility",
+  "private": true,
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.5.3"
+  }
+}
