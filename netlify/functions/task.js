@@ -1,7 +1,7 @@
 const connectDB = require("./_shared/db");
 const requireAuth = require("./_shared/auth");
 const { json, error, options } = require("./_shared/responses");
-const Task = require("../../backend/models/Task");
+const Task = require("./_shared/models/Task");
 
 const allowedStatuses = ["Todo", "In Progress", "Testing", "Done"];
 

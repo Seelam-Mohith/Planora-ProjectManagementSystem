@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
-const User = require("../../../backend/models/User");
+const connectDB = require("./db");
+const User = require("./models/User");
 
 const requireAuth = async (event) => {
   const header = event.headers.authorization || event.headers.Authorization;
@@ -13,6 +14,8 @@ const requireAuth = async (event) => {
   const token = header.split(" ")[1];
 
   try {
+    await connectDB();
+
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const user = await User.findById(decoded.id);
 
@@ -24,6 +27,12 @@ const requireAuth = async (event) => {
 
     return { user };
   } catch (err) {
+    if (err && err.name === "MongoServerSelectionError") {
+      return {
+        error: { statusCode: 500, message: "Failed to connect to database" },
+      };
+    }
+
     return {
       error: { statusCode: 401, message: "Not authorized, invalid token" },
     };

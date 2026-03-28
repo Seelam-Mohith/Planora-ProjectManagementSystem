@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const connectDB = require("./_shared/db");
 const { json, error, options } = require("./_shared/responses");
-const User = require("../../backend/models/User");
+const User = require("./_shared/models/User");
 
 exports.handler = async (event) => {
   if (event.httpMethod === "OPTIONS") {

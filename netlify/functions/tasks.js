@@ -1,8 +1,8 @@
 const connectDB = require("./_shared/db");
 const requireAuth = require("./_shared/auth");
 const { json, error, options } = require("./_shared/responses");
-const Task = require("../../backend/models/Task");
-const User = require("../../backend/models/User");
+const Task = require("./_shared/models/Task");
+const User = require("./_shared/models/User");
 
 exports.handler = async (event) => {
   if (event.httpMethod === "OPTIONS") {
