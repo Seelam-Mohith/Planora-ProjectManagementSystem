@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import api from "../api";
 
 function Register() {
@@ -9,6 +9,7 @@ function Register() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -39,29 +40,71 @@ function Register() {
 
   return (
     <section className="panel auth-panel">
-      <h2>Create Account</h2>
-      <form className="form-grid" onSubmit={handleSubmit}>
-        <input
-          placeholder="Name"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
-        <input
-          placeholder="Email"
-          type="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-        />
-        <input
-          placeholder="Password (min 6 characters)"
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-        <button type="submit" disabled={loading}>
-          {loading ? "Creating account..." : "Register"}
+      <div className="auth-brand">
+        <span className="brand-logo" aria-hidden="true">
+          <span className="brand-logo-core" />
+        </span>
+        <span className="brand-text">Planora</span>
+      </div>
+
+      <div className="auth-tabs" role="tablist" aria-label="Authentication">
+        <Link
+          to="/login"
+          role="tab"
+          aria-selected={location.pathname === "/login"}
+          className={
+            location.pathname === "/login" ? "auth-tab active" : "auth-tab"
+          }
+        >
+          Login
+        </Link>
+        <Link
+          to="/register"
+          role="tab"
+          aria-selected={location.pathname === "/register"}
+          className={
+            location.pathname === "/register" ? "auth-tab active" : "auth-tab"
+          }
+        >
+          Sign Up
+        </Link>
+      </div>
+
+      <h2 className="auth-title">Create your account</h2>
+      <p className="auth-subtitle">Join Planora and start managing tasks.</p>
+
+      <form className="form-grid auth-form" onSubmit={handleSubmit}>
+        <label className="field">
+          <span className="field-label">Name</span>
+          <input
+            placeholder="Your name"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+          />
+        </label>
+        <label className="field">
+          <span className="field-label">Email</span>
+          <input
+            placeholder="you@example.com"
+            type="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
+        </label>
+        <label className="field">
+          <span className="field-label">Password</span>
+          <input
+            placeholder="Min 6 characters"
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+        </label>
+        <button className="auth-btn" type="submit" disabled={loading}>
+          {loading ? "Creating account..." : "Sign Up"}
         </button>
       </form>
+
       {message && <p className="feedback error">{message}</p>}
       <p className="feedback">
         Already have an account? <Link to="/login">Login</Link>
