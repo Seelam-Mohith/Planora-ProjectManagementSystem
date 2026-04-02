@@ -503,6 +503,10 @@ button:disabled {
 }
 
 @media (max-width: 720px) {
+  .main-content {
+    padding: 20px 16px 28px;
+  }
+
   .page-grid,
   .task-grid {
     grid-template-columns: 1fr;
@@ -510,14 +514,54 @@ button:disabled {
 
   .snapshot-item {
     grid-template-columns: 1fr;
+    gap: 4px;
   }
 
   .navbar {
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    padding: 14px 16px;
   }
 
   .brand {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-links .nav-btn {
+    padding: 8px 14px;
+  }
+
+  .panel.auth-panel {
+    padding: 28px 20px;
+  }
+
+  .panel-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .link-btn {
+    text-align: center;
+  }
+
+  .task-actions {
+    flex-wrap: wrap;
+  }
+
+  .history-box li {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .footer-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    padding: 28px 16px;
   }
 }
