@@ -121,10 +121,10 @@ body {
 }
 
 .panel.auth-panel {
-  max-width: 420px;
+  max-width: 480px;
   width: 100%;
   margin: auto;
-  padding: 28px;
+  padding: 40px 44px;
   text-align: center;
 }
 
@@ -132,7 +132,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 26px;
 }
 
 .auth-brand .brand-logo {
@@ -159,7 +159,7 @@ body {
 }
 
 .auth-tab {
-  padding: 9px 0;
+  padding: 12px 0;
   border-radius: 8px;
   font-size: 0.95rem;
   font-weight: 600;
@@ -179,14 +179,14 @@ body {
 
 .auth-title {
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 700;
 }
 
 .auth-subtitle {
-  margin: 6px 0 20px;
+  margin: 8px 0 26px;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .auth-form {
@@ -195,7 +195,7 @@ body {
 
 .field {
   display: grid;
-  gap: 6px;
+  gap: 8px;
 }
 
 .field-label {
@@ -206,9 +206,9 @@ body {
 
 .auth-btn {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   font-size: 1rem;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .main-content {
@@ -243,7 +243,7 @@ body {
 
 .form-grid {
   display: grid;
-  gap: 10px;
+  gap: 16px;
 }
 
 input,
@@ -253,7 +253,7 @@ button {
   font: inherit;
   border-radius: 8px;
   border: 1px solid var(--border);
-  padding: 10px 12px;
+  padding: 12px 14px;
 }
 
 input,
