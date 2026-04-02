@@ -211,22 +211,22 @@ body {
 }
 
 .main-content {
-  max-width: 1100px;
-  margin: 24px auto;
-  padding: 0 16px 24px;
+  max-width: 1400px;
+  margin: 28px auto;
+  padding: 0 24px 32px;
 }
 
 .page-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
 }
 
 .panel {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 16px;
+  padding: 24px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
@@ -336,19 +336,22 @@ button:disabled {
 
 .task-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
 }
 
 .task-card {
   border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 14px;
+  border-radius: 12px;
+  padding: 20px;
   background: var(--surface-soft);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  line-height: 1.5;
 }
 
 .task-card h3 {
   margin-top: 0;
+  font-size: 1.15rem;
 }
 
 .task-meta {
@@ -397,9 +400,9 @@ button:disabled {
 
 .footer-inner {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 32px 16px;
+  padding: 32px 24px;
 }
 
 .footer-grid {
@@ -496,7 +499,7 @@ button:disabled {
   color: #7f93a9;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 720px) {
   .page-grid,
   .task-grid {
     grid-template-columns: 1fr;
