@@ -565,3 +565,24 @@ button:disabled {
     padding: 28px 16px;
   }
 }
+
+@media (max-width: 480px) {
+  input,
+  textarea,
+  select,
+  button {
+    font-size: 16px;
+  }
+
+  .auth-title {
+    font-size: 1.4rem;
+  }
+
+  .panel {
+    padding: 18px;
+  }
+
+  .task-card {
+    padding: 16px;
+  }
+}
