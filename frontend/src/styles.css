@@ -246,6 +246,13 @@ body {
   gap: 16px;
 }
 
+.form-grid input,
+.form-grid textarea,
+.form-grid select {
+  width: 100%;
+  min-width: 0;
+}
+
 input,
 textarea,
 select,
@@ -513,8 +520,14 @@ button:disabled {
   }
 
   .snapshot-item {
-    grid-template-columns: 1fr;
-    gap: 4px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px 8px;
+  }
+
+  .snapshot-item > span:first-child {
+    grid-column: 1 / -1;
+    font-weight: 600;
+    color: var(--text);
   }
 
   .navbar {
