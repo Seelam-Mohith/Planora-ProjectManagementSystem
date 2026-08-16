@@ -19,11 +19,11 @@ Tasks move through four stages:
 
 ### Task Management
 Each task contains:
-- title
-- description (optional)
-- assignedTo (User reference)
-- status (default: Todo)
-- history of status transitions
+- Title
+- Description (optional)
+- AssignedTo (User reference)
+- Status (default: Todo)
+- History of status transitions
 
 Task capabilities:
 - Create task
